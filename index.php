@@ -1,3 +1,6 @@
+<?php
+require 'inc/data.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,76 +22,21 @@
 
         <div class="row">
 
-
+        <?php foreach ($courses as $course): ?>
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
                 <div class="card h-100">
-                    <img src="images/cours-php.jpg" class="card-img-top" alt="...">
+                    <img src="images/<?php echo $course['image']; ?>" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Les bases de PHP</h5>
-                        <p class="card-text">Adapté aux débutants</p>
+                        <h5 class="card-title"><?php echo $course['title']; ?></h5>
+                        <p class="card-text"><?php echo $course['shortDescription']; ?></p>
                         <a href="cours.php" class="btn btn-primary">En savoir plus</a>
                     </div>
                 </div>
             </div>
-
-
-
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-                <div class="card h-100">
-                    <img src="images/cours-gdp.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Gestion de projet</h5>
-                        <p class="card-text">Piloter des projets au quotidien</p>
-                        <a href="cours.php" class="btn btn-primary">En savoir plus</a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-                <div class="card h-100">
-                    <img src="images/cours-seo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">SEO</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet.</p>
-                        <a href="cours.php" class="btn btn-primary">En savoir plus</a>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-                <div class="card h-100">
-                    <img src="images/cours-community-manager.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Community manager</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet.</p>
-                        <a href="cours.php" class="btn btn-primary">En savoir plus</a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-                <div class="card h-100">
-                    <img src="images/cours-admin-systeme.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Administrateur système</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet.</p>
-                        <a href="cours.php" class="btn btn-primary">En savoir plus</a>
-                    </div>
-                </div>
-            </div>
-
-
-
+        <?php endforeach; ?>
 
         </div>
     </div>
-
-
-
 
 
     <!-- Insertion du fichier JS de Bootstrap -->
