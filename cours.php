@@ -1,3 +1,27 @@
+<?php
+require 'inc/data.php';
+
+$id = $_GET['id'] ?? null;
+$course = $courses[$id] ?? null;
+
+if (!$course) { // '42' == 42 → true ; '42' === 42 → false
+    header('Location: 404.php');
+    exit();
+}
+/*
+    `??` est l'opérateur **Null coalescent**
+    ([documentation](https://www.php.net/manual/fr/migration70.new-features.php#migration70.new-features.null-coalesce-op))
+    équivalent à, en ternaire :
+    $id = isset($_GET['id']) ? $_GET['id'] : null;
+    et à :
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+    }
+    else {
+        $id = null;
+    }
+*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,34 +36,23 @@
 </head>
 
 <body>
-
-    <?php include 'inc/nav.php'; ?>
+    <?php include('inc/nav.php'); ?>
 
     <div class="container mb-5">
         <div class="row">
             <div class="col">
-                <h1>Les bases de PHP</h1>
+                <h1><?= $course['title'] ?></h1>
             </div>
             <div class="col text-end">
-                <span class="badge bg-success">70h</span>
-                <span class="badge bg-warning">790 €</span>
+                <span class="badge bg-success"><?= $course['numberOfHours'] ?>h</span>
+                <span class="badge bg-warning"><?= $course['price'] ?> €</span>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-12 col-md-6"><img src="images/cours-php.jpg" class="card-img-top" alt="cours PHP"></div>
-            <div class="col-12 col-md-6">
-                <p>
-                    Notre programme a été pensé pour les néophytes. En d’autres termes, pas besoin d’avoir dévoré moults
-                    bouquins sur le code ou d’avoir essayé tous les MOOCs possibles pour faire bonne figure dans cette
-                    formation. Mais si vous disposez de quelques bases, c’est toujours mieux, on va pas se mentir.
-                </p>
-                <p>
-                    Avec ce nouveau langage, on apprend à programmer nos premières fonctionnalités pour apporter de la
-                    vie dans nos pages web. Ces deux semaines ne sont pas de tout repos mais nous permettent d’apprendre
-                    à réaliser de bout en bout un site dynamique et fonctionnel.
-                </p>
-
+            <div class="col"><img src="images/<?= $course['image'] ?>" class="card-img-top" alt="cours PHP"></div>
+            <div class="col">
+                <?= nl2br($course['description']); ?>
             </div>
         </div>
 
@@ -47,12 +60,9 @@
             <div class="col">
                 <h2>Le programme</h2>
                 <ul>
-                    <li>Les variables</li>
-                    <li>Les conditions</li>
-                    <li>Les boucles</li>
-                    <li>Les tableaux</li>
-                    <li>Les classes</li>
-                    <li>Interaction avec une base de données</li>
+                    <?php foreach ($course['programContent'] as $notion) : ?>
+                        <li><?= $notion; ?></li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </div>
@@ -64,41 +74,33 @@
                 <table class="table table-striped">
                     <tr>
                         <td>Dates</td>
-                        <td>14/03/2022 au 18/03/2022</td>
+                        <td><?= $course['classDate'] ?></td>
                     </tr>
                     <tr>
                         <td>Votre prof</td>
-                        <td>Pierre C.</td>
+                        <td><?= $course['professor'] ?></td>
                     </tr>
                     <tr>
                         <td>Durée</td>
-                        <td>70h</td>
+                        <td><?= $course['numberOfHours'] ?>h</td>
                     </tr>
                     <tr>
                         <td>Modalité</td>
-                        <td>A distance</td>
+                        <td><?= $course['modality'] ?></td>
                     </tr>
                     <tr>
                         <td>Niveau requis</td>
-                        <td>Débutant</td>
+                        <td><?= $course['requiredLevel'] ?></td>
                     </tr>
                 </table>
             </div>
         </div>
-
     </div>
 
-
-
-
-
-
-
-
-    <!-- Insertion du fichier JS de Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+<!-- Insertion du fichier JS de Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>

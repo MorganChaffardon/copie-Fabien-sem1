@@ -22,14 +22,14 @@ require 'inc/data.php';
 
         <div class="row">
 
-        <?php foreach ($courses as $course): ?>
+        <?php foreach ($courses as $id => $course): ?>
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
                 <div class="card h-100">
                     <img src="images/<?php echo $course['image']; ?>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $course['title']; ?></h5>
                         <p class="card-text"><?php echo $course['shortDescription']; ?></p>
-                        <a href="cours.php" class="btn btn-primary">En savoir plus</a>
+                        <a href="cours.php?id=<?php echo $id; ?>" class="btn btn-primary">En savoir plus</a>
                     </div>
                 </div>
             </div>
