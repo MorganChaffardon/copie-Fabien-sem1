@@ -13,32 +13,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">O'programme</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Cours</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="creer-cours.html">Créer un cours</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Connexion</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-
+    <?php include 'inc/nav.php'; ?>
 
     <div class="container mb-5">
 
@@ -51,7 +26,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Les bases de PHP</h5>
                         <p class="card-text">Adapté aux débutants</p>
-                        <a href="cours.html" class="btn btn-primary">En savoir plus</a>
+                        <a href="cours.php" class="btn btn-primary">En savoir plus</a>
                     </div>
                 </div>
             </div>
@@ -64,7 +39,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Gestion de projet</h5>
                         <p class="card-text">Piloter des projets au quotidien</p>
-                        <a href="cours.html" class="btn btn-primary">En savoir plus</a>
+                        <a href="cours.php" class="btn btn-primary">En savoir plus</a>
                     </div>
                 </div>
             </div>
@@ -76,7 +51,7 @@
                     <div class="card-body">
                         <h5 class="card-title">SEO</h5>
                         <p class="card-text">Lorem ipsum dolor sit amet.</p>
-                        <a href="cours.html" class="btn btn-primary">En savoir plus</a>
+                        <a href="cours.php" class="btn btn-primary">En savoir plus</a>
                     </div>
                 </div>
             </div>
@@ -89,7 +64,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Community manager</h5>
                         <p class="card-text">Lorem ipsum dolor sit amet.</p>
-                        <a href="cours.html" class="btn btn-primary">En savoir plus</a>
+                        <a href="cours.php" class="btn btn-primary">En savoir plus</a>
                     </div>
                 </div>
             </div>
@@ -101,12 +76,12 @@
                     <div class="card-body">
                         <h5 class="card-title">Administrateur système</h5>
                         <p class="card-text">Lorem ipsum dolor sit amet.</p>
-                        <a href="cours.html" class="btn btn-primary">En savoir plus</a>
+                        <a href="cours.php" class="btn btn-primary">En savoir plus</a>
                     </div>
                 </div>
             </div>
 
-            
+
 
 
         </div>
