@@ -16,6 +16,16 @@ class Course
       // var_dump($title, $image);
     }
 
+    public function getTitle()
+    {
+      return $this->title;
+    }
+
+    public function setTitle($title)
+    {
+      $this->title = $title;
+    }
+
     // public function calculatePriceOnSolde()
     // {
     //     return 'prix soldé : ' . ($this->price * $this->discount / 100);

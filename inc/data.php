@@ -5,7 +5,7 @@ require 'classes/course.php';
 $coursePHP = new Course('Les bases de PHP', 'cours-php.jpg');
 
 $courseGDP = new Course();
-$courseGDP->title = 'Gestion de projet';
+$courseGDP->setTitle('Gestion de projet');
 $courseGDP->image = 'cours-gdp.jpg';
 // $courseGDP->price = 490;
 // $courseGDP->discount = 50;
