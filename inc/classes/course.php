@@ -2,6 +2,7 @@
 
 class Course {
     // définition des propriétés de notre cours
+    private $id;
     private $title;
     private $image;
     private $shortDescription;
@@ -15,6 +16,7 @@ class Course {
     private $requiredLevel;
 
     public function __construct(
+        $id,
         $title = '',
         $image = '',
         $shortDescription = '',
@@ -27,6 +29,7 @@ class Course {
         $modality = '',
         $requiredLevel = ''
     ) {
+        $this->id = $id;
         $this->setTitle($title);
         $this->setImage($image);
         $this->setShortDescription($shortDescription);
@@ -38,6 +41,14 @@ class Course {
         $this->setProfessor($professor);
         $this->setModality($modality);
         $this->setRequiredLevel($requiredLevel);
+    }
+
+    /**
+     * Get the value of id
+     */
+    public function getId(): int
+    {
+        return $this->id;
     }
 
     /**

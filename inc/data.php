@@ -5,7 +5,7 @@ require 'classes/course.php';
 
 /* instanciation de la classe Course pour obtenir un nouvel objet
     qui sera stocké dans la variable $coursPhp */
-$coursPhp = new Course();
+$coursPhp = new Course(1);
 // Nos setters retournent tous `$this` donc l'objet lui-même. (OPTIONNEL)
 // on peut alors « chainer » les méthodes
 $coursPhp
@@ -32,7 +32,7 @@ Suspendisse potenti. Ut sapien turpis, suscipit tristique enim sit amet, eleifen
 
 /* instanciation de la classe Course pour obtenir un nouvel objet
     qui sera stocké dans la variable $coursGDP */
-$coursGDP = new Course();
+$coursGDP = new Course(2);
 $coursGDP->setTitle('Gestion de projet');
 $coursGDP->setImage('cours-gdp.jpg');
 $coursGDP->setShortDescription('Piloter des projets au quotidien');
@@ -55,6 +55,7 @@ $coursGDP->setRequiredLevel('Intermédiaire');
 /* instanciation de la classe Course pour obtenir un nouvel objet
     qui sera stocké dans la variable $coursSEO */
 $coursSEO = new Course(
+    3,
     'SEO',
     'cours-seo.jpg',
     'Lorem ipsum dolor sit amet.',
@@ -78,6 +79,7 @@ $coursSEO
 /* instanciation de la classe Course pour obtenir un nouvel objet
     qui sera stocké dans la variable $coursCM */
 $coursCM = new Course(
+    4,
     'Community manager',
     'cours-community-manager.jpg',
     'Lorem ipsum dolor sit amet.',
@@ -95,6 +97,7 @@ $coursCM = new Course(
 /* instanciation de la classe Course pour obtenir un nouvel objet
     qui sera stocké dans la variable $coursAdminSys */
 $coursAdminSys = new Course(
+    5,
     'Administrateur système',
     'cours-admin-systeme.jpg',
     'Lorem ipsum dolor sit amet.',
@@ -111,9 +114,9 @@ $coursAdminSys = new Course(
 
 // liste des cours
 $courses = [
-    1 => $coursPhp,
-    2 => $coursGDP,
-    3 => $coursSEO,
-    4 => $coursCM,
-    5 => $coursAdminSys
+    $coursPhp,
+    $coursGDP,
+    $coursSEO,
+    $coursCM,
+    $coursAdminSys
 ];
