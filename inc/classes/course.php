@@ -24,6 +24,8 @@ class Course
     public function setTitle($title)
     {
       $this->title = $title;
+
+      return $this;
     }
 
     // public function calculatePriceOnSolde()
