@@ -5,6 +5,10 @@ require 'classes/coreModel.php';
 require 'classes/course.php';
 require 'classes/professor.php';
 
+// Fatal error: Uncaught Error: Cannot instantiate abstract class CoreModel
+// $core = new CoreModel();
+// var_dump($core);die();
+
 // Liste des professeurs
 $professors = [
     new Professor(1, 'Nicolas', 'Ramel'),

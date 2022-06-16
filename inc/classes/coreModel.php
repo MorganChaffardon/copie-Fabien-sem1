@@ -1,11 +1,14 @@
 <?php
 
-class CoreModel
+/*
+  une classe abstraite ne peut pas être instanciée (new CoreModel())
+  mais d'autres classes peuvent en hériter
+*/
+abstract class CoreModel
 {
     protected $id;
     protected $createdAt;
     protected $updatedAt;
-
 
     /**
      * Get the value of id
