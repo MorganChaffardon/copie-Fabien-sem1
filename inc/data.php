@@ -1,7 +1,16 @@
 <?php
 
 // import des classes
+require 'classes/coreModel.php';
 require 'classes/course.php';
+require 'classes/professor.php';
+
+// Liste des professeurs
+$professors = [
+    new Professor(1, 'Nicolas', 'Ramel'),
+    new Professor(2, 'Pierre', 'Castin'),
+    new Professor(3, 'Alexandre', 'Bareau')
+];
 
 /* instanciation de la classe Course pour obtenir un nouvel objet
     qui sera stocké dans la variable $coursPhp */
