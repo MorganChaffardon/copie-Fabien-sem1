@@ -1,8 +1,31 @@
 <?php
-require 'inc/data.php';
-require 'inc/functions.php';
+// inclusion du fichier avec les données
+include('inc/data.php');
 
+// inclusion du fichier qui contiendra nos fonctions
+include('inc/functions.php');
+
+// récupération de l'id du cours
+// $_GET est un tableau associatif qui est automatiquement créer par PHP
+// Ce tableau contient les valeurs des paramètres transmis dans l'url (query string)
 $id = $_GET['id'] ?? null;
+
+/*
+    `??` est l'opérateur **Null coalescent**
+    ([documentation](https://www.php.net/manual/fr/migration70.new-features.php#migration70.new-features.null-coalesce-op))
+
+    équivalent à, en ternaire :
+    $id = isset($_GET['id']) ? $_GET['id'] : null;
+
+    et à :
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+    } else {
+        $id = null;
+    }
+*/
+
+// recherche le cours par son id
 $course = getCourseOrRedirect($id, $courses);
 ?>
 <!DOCTYPE html>
@@ -24,18 +47,18 @@ $course = getCourseOrRedirect($id, $courses);
     <div class="container mb-5">
         <div class="row">
             <div class="col">
-                <h1><?= $course['title'] ?></h1>
+                <h1><?= $course->getTitle(); ?></h1>
             </div>
             <div class="col text-end">
-                <span class="badge bg-success"><?= $course['numberOfHours'] ?>h</span>
-                <span class="badge bg-warning"><?= $course['price'] ?> €</span>
+                <span class="badge bg-success"><?= $course->getNumberOfHours(); ?>h</span>
+                <span class="badge bg-warning"><?= $course->getPrice(); ?> €</span>
             </div>
         </div>
 
         <div class="row">
-            <div class="col"><img src="images/<?= $course['image'] ?>" class="card-img-top" alt="cours PHP"></div>
+            <div class="col"><img src="images/<?= $course->getImage(); ?>" class="card-img-top" alt="cours PHP"></div>
             <div class="col">
-                <?= nl2br($course['description']); ?>
+                <?= nl2br($course->getDescription()); ?>
             </div>
         </div>
 
@@ -43,7 +66,7 @@ $course = getCourseOrRedirect($id, $courses);
             <div class="col">
                 <h2>Le programme</h2>
                 <ul>
-                    <?php foreach ($course['programContent'] as $notion) : ?>
+                    <?php foreach ($course->getProgramContent() as $notion) : ?>
                         <li><?= $notion; ?></li>
                     <?php endforeach; ?>
                 </ul>
@@ -57,23 +80,23 @@ $course = getCourseOrRedirect($id, $courses);
                 <table class="table table-striped">
                     <tr>
                         <td>Dates</td>
-                        <td><?= $course['classDate'] ?></td>
+                        <td><?= $course->getClassDate(); ?></td>
                     </tr>
                     <tr>
                         <td>Votre prof</td>
-                        <td><?= $course['professor'] ?></td>
+                        <td><?= $course->getProfessor(); ?></td>
                     </tr>
                     <tr>
                         <td>Durée</td>
-                        <td><?= $course['numberOfHours'] ?>h</td>
+                        <td><?= $course->getNumberOfHours(); ?>h</td>
                     </tr>
                     <tr>
                         <td>Modalité</td>
-                        <td><?= $course['modality'] ?></td>
+                        <td><?= $course->getModality(); ?></td>
                     </tr>
                     <tr>
                         <td>Niveau requis</td>
-                        <td><?= $course['requiredLevel'] ?></td>
+                        <td><?= $course->getRequiredLevel(); ?></td>
                     </tr>
                 </table>
             </div>
