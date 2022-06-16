@@ -2,17 +2,17 @@
 
 class Course {
     // définition des propriétés de notre cours
-    public $title;
-    public $image;
-    public $shortDescription;
-    public $description;
-    public $programContent;
-    public $numberOfHours;
-    public $price;
-    public $classDate;
-    public $professor;
-    public $modality;
-    public $requiredLevel;
+    private $title;
+    private $image;
+    private $shortDescription;
+    private $description;
+    private $programContent;
+    private $numberOfHours;
+    private $price;
+    private $classDate;
+    private $professor;
+    private $modality;
+    private $requiredLevel;
 
     public function __construct(
         $title = '',
@@ -51,9 +51,9 @@ class Course {
     /**
      * Set the value of title
      *
-     * @return  self
+     * @return self
      */
-    public function setTitle(string $title): Course
+    public function setTitle(string $title): self
     {
         $this->title = $title;
 
@@ -73,7 +73,7 @@ class Course {
      *
      * @return  self
      */
-    public function setImage(string $image): Course
+    public function setImage(string $image): self
     {
         $this->image = $image;
 
@@ -93,7 +93,7 @@ class Course {
      *
      * @return  self
      */
-    public function setShortDescription(string $shortDescription): Course
+    public function setShortDescription(string $shortDescription): self
     {
         $this->shortDescription = $shortDescription;
 
@@ -113,7 +113,7 @@ class Course {
      *
      * @return  self
      */
-    public function setDescription(string $description): Course
+    public function setDescription(string $description): self
     {
         $this->description = $description;
 
@@ -133,14 +133,15 @@ class Course {
      *
      * @return  self
      */
-    public function setProgramContent(array $programContent): Course
+    public function setProgramContent(array $programContent): self
     {
         $this->programContent = $programContent;
 
         return $this;
     }
 
-    public function addToProgramContent(string $programContentElement): Course {
+    public function addToProgramContent(string $programContentElement): self
+    {
         $this->programContent[] = $programContentElement;
 
         return $this;
@@ -159,9 +160,9 @@ class Course {
      *
      * @return  self
      */
-    public function setNumberOfHours(int $numberOfHours): Course
+    public function setNumberOfHours(int $numberOfHours): self
     {
-        if ($numberOfHours >0) {
+        if ($numberOfHours > 0) {
             $this->numberOfHours = $numberOfHours;
         }
 
@@ -181,9 +182,9 @@ class Course {
      *
      * @return  self
      */
-    public function setPrice(float $price): Course
+    public function setPrice(float $price): self
     {
-        if ($price > 0) {
+        if ($price >= 0) {
             $this->price = $price;
         }
 
@@ -203,7 +204,7 @@ class Course {
      *
      * @return  self
      */
-    public function setClassDate(string $classDate): Course
+    public function setClassDate(string $classDate): self
     {
         $this->classDate = $classDate;
 
@@ -223,7 +224,7 @@ class Course {
      *
      * @return  self
      */
-    public function setProfessor(string $professor): Course
+    public function setProfessor(string $professor): self
     {
         $this->professor = $professor;
 
@@ -243,7 +244,7 @@ class Course {
      *
      * @return  self
      */
-    public function setModality(string $modality): Course
+    public function setModality(string $modality): self
     {
         $this->modality = $modality;
 
@@ -263,7 +264,7 @@ class Course {
      *
      * @return  self
      */
-    public function setRequiredLevel(string $requiredLevel): Course
+    public function setRequiredLevel(string $requiredLevel): self
     {
         $this->requiredLevel = $requiredLevel;
 

@@ -65,11 +65,18 @@ $course = getCourseOrRedirect($id, $courses);
         <div class="row">
             <div class="col">
                 <h2>Le programme</h2>
-                <ul>
-                    <?php foreach ($course->getProgramContent() as $notion) : ?>
-                        <li><?= $notion; ?></li>
-                    <?php endforeach; ?>
-                </ul>
+
+                <?php if (!empty($course->getProgramContent())): ?>
+                    <ul>
+                        <?php foreach ($course->getProgramContent() as $notion) : ?>
+                            <li><?= $notion; ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php else: ?>
+                    <p>
+                        Programme non défini.
+                    </p>
+                <?php endif; ?>
             </div>
         </div>
 

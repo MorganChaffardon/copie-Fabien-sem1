@@ -6,26 +6,29 @@ require 'classes/course.php';
 /* instanciation de la classe Course pour obtenir un nouvel objet
     qui sera stocké dans la variable $coursPhp */
 $coursPhp = new Course();
-$coursPhp->setTitle('Les bases de PHP');
-$coursPhp->setImage('cours-php.jpg');
-$coursPhp->setShortDescription('Adapté aux débutants');
-$coursPhp->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tempus lacus sit amet diam rhoncus, at congue magna maximus. Pellentesque ultrices vitae magna ut laoreet. Nunc ac sem faucibus, placerat justo sit amet, posuere quam.
+// Nos setters retournent tous `$this` donc l'objet lui-même. (OPTIONNEL)
+// on peut alors « chainer » les méthodes
+$coursPhp
+    ->setTitle('Les bases de PHP')
+    ->setImage('cours-php.jpg')
+    ->setShortDescription('Adapté aux débutants')
+    ->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tempus lacus sit amet diam rhoncus, at congue magna maximus. Pellentesque ultrices vitae magna ut laoreet. Nunc ac sem faucibus, placerat justo sit amet, posuere quam.
 
-Suspendisse potenti. Ut sapien turpis, suscipit tristique enim sit amet, eleifend bibendum leo. Maecenas in quam sed nibh feugiat tristique a et lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
-$coursPhp->setProgramContent([
-    'Les variables',
-    'Les conditions',
-    'Les boucles',
-    'Les tableaux',
-    'Les classes',
-    'Interaction avec une base de données'
-]);
-$coursPhp->setNumberOfHours(70);
-$coursPhp->setPrice(790);
-$coursPhp->setClassDate('14/03/2022 au 18/03/2022');
-$coursPhp->setProfessor('Nicolas R.');
-$coursPhp->setModality('A distance');
-$coursPhp->setRequiredLevel('Débutant');
+Suspendisse potenti. Ut sapien turpis, suscipit tristique enim sit amet, eleifend bibendum leo. Maecenas in quam sed nibh feugiat tristique a et lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
+    ->setProgramContent([
+        'Les variables',
+        'Les conditions',
+        'Les boucles',
+        'Les tableaux',
+        'Les classes',
+        'Interaction avec une base de données'
+    ])
+    ->setNumberOfHours(70)
+    ->setPrice(790)
+    ->setClassDate('14/03/2022 au 18/03/2022')
+    ->setProfessor('Nicolas R.')
+    ->setModality('A distance')
+    ->setRequiredLevel('Débutant');
 
 /* instanciation de la classe Course pour obtenir un nouvel objet
     qui sera stocké dans la variable $coursGDP */
@@ -68,7 +71,9 @@ $coursSEO = new Course(
 $coursSEO->addToProgramContent('Référencement naturel vs. référencement payant');
 $coursSEO->addToProgramContent('Principe de base');
 $coursSEO->addToProgramContent('Optimisation de sa page');
-$coursSEO->addToProgramContent('Backlink');
+$coursSEO
+    ->addToProgramContent('Backlink')
+    ->addToProgramContent('Return $this permet de chainer');
 
 /* instanciation de la classe Course pour obtenir un nouvel objet
     qui sera stocké dans la variable $coursCM */
