@@ -4,11 +4,13 @@
   une classe abstraite ne peut pas être instanciée (new CoreModel())
   mais d'autres classes peuvent en hériter
 */
-abstract class CoreModel
+abstract class CoreModel implements Model
 {
     protected $id;
     protected $createdAt;
     protected $updatedAt;
+
+    // abstract public function save();
 
     /**
      * Get the value of id

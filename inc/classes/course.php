@@ -1,8 +1,8 @@
 <?php
 
-class Course {
+class Course extends CoreModel
+{
     // définition des propriétés de notre cours
-    private $id;
     private $title;
     private $image;
     private $shortDescription;
@@ -41,14 +41,6 @@ class Course {
         $this->setProfessor($professor);
         $this->setModality($modality);
         $this->setRequiredLevel($requiredLevel);
-    }
-
-    /**
-     * Get the value of id
-     */
-    public function getId(): int
-    {
-        return $this->id;
     }
 
     /**
@@ -280,5 +272,13 @@ class Course {
         $this->requiredLevel = $requiredLevel;
 
         return $this;
+    }
+
+    /**
+     * `save()` DOIT être implémenté (voir interface)
+     */
+    public function save()
+    {
+        echo 'save';
     }
 }

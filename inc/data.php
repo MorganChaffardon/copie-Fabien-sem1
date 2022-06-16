@@ -1,5 +1,8 @@
 <?php
 
+// import des interfaces
+require 'interfaces/model.php';
+
 // import des classes
 require 'classes/coreModel.php';
 require 'classes/course.php';

@@ -14,4 +14,12 @@ class Professor extends CoreModel
     public function getProfName() {
         return $this->firstName . ' ' . substr($this->lastName, 0, 1) . '.';
     }
+
+    /**
+     * `save()` DOIT être implémenté (voir interface)
+     */
+    public function save()
+    {
+        echo 'save';
+    }
 }
